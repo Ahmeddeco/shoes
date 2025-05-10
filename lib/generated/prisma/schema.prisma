@@ -1,0 +1,63 @@
+generator zod {
+  provider                         = "zod-prisma-types"
+  output                           = "./generated"
+  useMultipleFiles                 = true
+  writeNullishInModelTypes         = true
+  createModelTypes                 = true // default is true
+  writeBarrelFiles                 = false // default is true
+  createInputTypes                 = false // default is true
+  addInputTypeValidation           = false // default is true
+  addIncludeType                   = false // default is true
+  addSelectType                    = false // default is true
+  validateWhereUniqueInput         = false // default is true
+  createOptionalDefaultValuesTypes = false // default is false
+  createRelationValuesTypes        = false // default is false
+  createPartialTypes               = false // default is false
+  useDefaultValidators             = false // default is true
+  coerceDate                       = false // default is true
+}
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String @id @unique
+  email        String @unique
+  firstName    String
+  lastName     String
+  profileImage String
+
+  createdAt DateTime @default(now())
+}
+
+model Product {
+  id          String        @id @default(uuid())
+  name        String
+  description String
+  status      ProductStatus
+  price       Int
+  images      String[]
+  category    Category
+  isFeatured  Boolean?      @default(false)
+
+  createdAt DateTime @default(now())
+}
+
+enum ProductStatus {
+  draft
+  published
+  archived
+}
+
+enum Category {
+  men
+  women
+  kids
+}
