@@ -24,7 +24,7 @@ export const frontNavigationLinks = [
   },
   {
     title: 'all products',
-    href: '/products'
+    href: '/products/all'
   },
   {
     title: 'men',
@@ -34,8 +34,4 @@ export const frontNavigationLinks = [
     title: 'women',
     href: '/products/women'
   },
-  {
-    title: 'kids',
-    href: '/products/kids'
-  },
-]
+ ]

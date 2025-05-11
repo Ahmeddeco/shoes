@@ -9,6 +9,7 @@ import {
 	LoginLink,
 	RegisterLink,
 } from '@kinde-oss/kinde-auth-nextjs/components'
+import ThemeButton from '../theme/ThemeButton'
 
 export default async function FrontHeader() {
 	const user = await IsUser()
@@ -29,7 +30,8 @@ export default async function FrontHeader() {
 			</nav>
 
 			{/* ------------------------------- Auth & Menu ------------------------------ */}
-			<div className='flex items-center'>
+			<div className='flex items-center gap-1'>
+				<ThemeButton />
 				{user ? (
 					<div className='flex items-center gap-1'>
 						<Link href={'/bag'} className='group p-2 flex items-center mr-2'>
