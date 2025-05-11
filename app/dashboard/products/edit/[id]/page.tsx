@@ -19,7 +19,6 @@ export default async function EditProductPage({
 	if (!data) {
 		notFound()
 	}
-	console.log('data', data)
 
 	return <EditeProduct data={data} />
 }

@@ -10,6 +10,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { IsUser } from '@/functions/authUser'
 import { User2 } from 'lucide-react'
 import { LogoutLink } from '@kinde-oss/kinde-auth-nextjs/components'
+import Image from 'next/image'
 
 export default async function UserDropdown() {
 	const user = await IsUser()
@@ -17,18 +18,18 @@ export default async function UserDropdown() {
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger>
-				<Avatar className='size-10'>
-					{user?.picture ? (
-						<>
-							<AvatarImage src={user?.picture}  />
-							<AvatarFallback>
-								{user.given_name?.[0]}
-							</AvatarFallback>
-						</>
-					) : (
-						<User2 className='size-6' />
-					)}
-				</Avatar>
+				{user?.picture ? (
+					<div className='relative size-9'>
+						<Image
+							src={user?.picture}
+							alt={'user'}
+							fill
+							className='rounded-full object-cover border-2 cursor-pointer'
+						/>
+					</div>
+				) : (
+					<User2 className='size-6' />
+				)}
 			</DropdownMenuTrigger>
 			<DropdownMenuContent align='end' forceMount>
 				<DropdownMenuLabel className='flex flex-col gap-1'>

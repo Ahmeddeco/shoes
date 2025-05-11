@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import React from 'react'
 import Navbar from './Navbar'
 import { IsUser } from '@/functions/authUser'
 import { LogIn, ShoppingBagIcon } from 'lucide-react'
@@ -7,19 +6,18 @@ import { Button } from '../ui/button'
 import UserDropdown from './UserDropdown'
 import {
 	LoginLink,
-	RegisterLink,
 } from '@kinde-oss/kinde-auth-nextjs/components'
 import ThemeButton from '../theme/ThemeButton'
 
 export default async function FrontHeader() {
 	const user = await IsUser()
 	return (
-		<header className='w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex items-center justify-between'>
+		<header  className='container mx-auto h-12 border-b fixed top-0 right-0 left-0 z-50 flex items-center justify-between bg-background/95'>
 			{/* ---------------------------------- logo ---------------------------------- */}
 			<div className='flex items-center'>
 				<Link href={`/`}>
 					<h1 className='capitalize font-bold text-xl lg:text-3xl'>
-						ahmed<span className='capitalize text-chart-3'>shoe</span>
+						ahmed<span className='capitalize text-primary'>shoe</span>
 					</h1>
 				</Link>
 			</div>

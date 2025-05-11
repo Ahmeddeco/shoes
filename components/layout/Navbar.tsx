@@ -15,7 +15,7 @@ export default function Navbar() {
 					key={i}
 					className={`${
 						pathName === href
-							? 'font-semibold underline-offset-4 underline'
+							? 'font-semibold underline-offset-4 underline text-primary'
 							: 'font-normal text-muted-foreground hover:text-foreground duration-500 ease-in-out'
 					} capitalize text-lg`}
 				>

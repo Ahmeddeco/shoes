@@ -26,7 +26,6 @@ import { toast } from 'sonner'
 
 export default function CreatePage() {
 	const [image, setImage] = useState<string>('')
-	console.log('image', image)
 	const handleDelete = () => setImage('')
 
 	const [lastResult, action] = useActionState(createBanner, undefined)
