@@ -16,3 +16,26 @@ export const dashboardNavigationLinks = [
     href: '/dashboard/banner'
   },
 ]
+
+export const frontNavigationLinks = [
+  {
+    title: 'home',
+    href: '/'
+  },
+  {
+    title: 'all products',
+    href: '/products'
+  },
+  {
+    title: 'men',
+    href: '/products/men'
+  },
+  {
+    title: 'women',
+    href: '/products/women'
+  },
+  {
+    title: 'kids',
+    href: '/products/kids'
+  },
+]

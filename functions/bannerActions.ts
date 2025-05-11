@@ -3,18 +3,13 @@
 import { prisma } from "@/lib/prisma"
 import BannerSchema from "@/schemas/BannerSchema"
 import { parseWithZod } from "@conform-to/zod"
-import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server"
 import { redirect } from "next/navigation"
+import { IsAdminUser } from "./authUser"
 
 /* ------------------------------ createBanner ------------------------------ */
 
 export const createBanner = async (prevState: unknown, formData: FormData) => {
-  const { getUser } = getKindeServerSession()
-  const user = await getUser()
-
-  if (!user || user.email !== process.env.ADMIN_EMAIL) {
-    redirect('/')
-  }
+  await IsAdminUser()
 
   const submission = parseWithZod(formData, {
     schema: BannerSchema
@@ -42,12 +37,7 @@ export const createBanner = async (prevState: unknown, formData: FormData) => {
 /* ------------------------------ deleteBanner ------------------------------ */
 
 export const deleteBanner = async (formData: FormData) => {
-  const { getUser } = getKindeServerSession()
-  const user = await getUser()
-
-  if (!user || user.email !== process.env.ADMIN_EMAIL) {
-    redirect('/')
-  }
+  await IsAdminUser()
 
   try {
     await prisma.banner.delete({

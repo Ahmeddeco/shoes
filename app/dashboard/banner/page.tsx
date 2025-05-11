@@ -36,6 +36,7 @@ const getData = async () => {
 
 export default async function BannerPage() {
 	const data = await getData()
+	console.log('data', data)
 
 	return (
 		<>
