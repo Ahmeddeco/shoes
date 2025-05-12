@@ -9,7 +9,7 @@ export default function FrontEndLayout({
 	return (
 		<>
 			<Navbar />
-			<main className='container mx-auto px-4 flex flex-col gap-24 mt-18'>{children}</main>
+			<main className='container mx-auto px-4 flex flex-col gap-24 mt-18 min-h-dvh'>{children}</main>
 			<Footer />
 		</>
 	)

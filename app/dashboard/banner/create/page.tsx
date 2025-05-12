@@ -1,6 +1,6 @@
 'use client'
 
-import SubmitButton from '@/components/shared/SubmitButton'
+import {SubmitButton} from '@/components/shared/SubmitButton'
 import { Button } from '@/components/ui/button'
 import {
 	Card,

@@ -2,7 +2,7 @@
 
 import { useFormStatus } from 'react-dom'
 import { Button } from '../ui/button'
-import { Loader2 } from 'lucide-react'
+import { Loader2, ShoppingBag } from 'lucide-react'
 
 type SubmitButtonType = {
 	title: string
@@ -19,7 +19,7 @@ type SubmitButtonType = {
 		| undefined
 }
 
-export default function SubmitButton({
+export function SubmitButton({
 	title,
 	type = 'submit',
 	size = 'full',
@@ -37,6 +37,23 @@ export default function SubmitButton({
 			) : (
 				<Button type={type} size={size} variant={variant}>
 					{title}
+				</Button>
+			)}
+		</>
+	)
+}
+
+export function ShoppingBagButton() {
+	const { pending } = useFormStatus()
+	return (
+		<>
+			{pending ? (
+				<Button disabled size={'full'}>
+					<Loader2 className='size-5 animate-spin' /> please wait
+				</Button>
+			) : (
+				<Button type='submit' size={'full'}>
+					<ShoppingBag className='size-5' /> Add to Cart
 				</Button>
 			)}
 		</>

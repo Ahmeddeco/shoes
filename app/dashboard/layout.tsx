@@ -12,6 +12,7 @@ import UserDropdown from '@/components/layout/UserDropdown'
 import Image from 'next/image'
 import { IsAdminUser } from '@/functions/authUser'
 import Link from 'next/link'
+import Logo from '@/components/layout/Logo'
 
 export default async function DashboardLayout({
 	children,
@@ -24,13 +25,7 @@ export default async function DashboardLayout({
 		<section className='flex flex-col max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 '>
 			<header className='sticky bg-background/95 top-0 flex h-16 items-center justify-between gap-4 border-b '>
 				{/* ---------------------------------- logo ---------------------------------- */}
-				<div className='flex items-center'>
-					<Link href={`/`}>
-						<h1 className='capitalize font-bold text-xl lg:text-3xl'>
-							ahmed<span className='capitalize text-primary'>shoe</span>
-						</h1>
-					</Link>
-				</div>
+				<Logo />
 
 				{/* --------------------------- DashboardNavigation -------------------------- */}
 				<nav className='hidden font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6 '>

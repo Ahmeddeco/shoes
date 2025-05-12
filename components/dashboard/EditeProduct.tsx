@@ -33,7 +33,7 @@ import { parseWithZod } from '@conform-to/zod'
 import ProductSchema from '@/schemas/ProductSchema'
 import { editProduct } from '@/functions/productsActions'
 import { type $Enums } from '@/lib/generated/prisma'
-import SubmitButton from '../shared/SubmitButton'
+import {SubmitButton} from '../shared/SubmitButton'
 
 type dataType = {
 	data: {

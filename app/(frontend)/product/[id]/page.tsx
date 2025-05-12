@@ -1,10 +1,12 @@
 import FeaturedProducts from '@/components/frontend/home/FeaturedProducts'
 import ImageSlider from '@/components/frontend/home/ImageSlider'
-import { Button } from '@/components/ui/button'
+import { ShoppingBagButton } from '@/components/shared/SubmitButton'
 import { Card, CardContent } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
+import { addItem } from '@/functions/bagActions'
 import { prisma } from '@/lib/prisma'
-import { ShoppingBag, StarHalf, StarIcon } from 'lucide-react'
+import { StarHalf, StarIcon } from 'lucide-react'
+import Form from 'next/form'
 import { notFound } from 'next/navigation'
 
 const getData = async (productId: string) => {
@@ -33,6 +35,9 @@ export default async function ProductPage({
 	if (!data) {
 		return notFound()
 	}
+
+	const addProducttoShoppingCart = addItem.bind(null, data.id)
+
 	return (
 		<>
 			<section className='grid grid-cols-1 md:grid-cols-2 gap-6  '>
@@ -57,9 +62,9 @@ export default async function ProductPage({
 						<p className='text-pretty text-muted-foreground '>
 							{data.description}
 						</p>
-						<Button>
-							<ShoppingBag className='size-5' /> Add to Cart
-						</Button>
+						<Form action={addProducttoShoppingCart}>
+							<ShoppingBagButton />
+						</Form>
 					</CardContent>
 				</Card>
 			</section>

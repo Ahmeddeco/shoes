@@ -32,7 +32,7 @@ import Image from 'next/image'
 import Form from 'next/form'
 import ProductStatusSchema from '@/prisma/generated/inputTypeSchemas/ProductStatusSchema'
 import CategorySchema from '@/prisma/generated/inputTypeSchemas/CategorySchema'
-import SubmitButton from '@/components/shared/SubmitButton'
+import {SubmitButton} from '@/components/shared/SubmitButton'
 
 export default function CreateProductPage() {
 	const [lastResult, action] = useActionState(createProduct, undefined)
