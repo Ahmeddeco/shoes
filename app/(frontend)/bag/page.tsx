@@ -31,10 +31,10 @@ export default async function BagPage() {
 				<div className='h-full flex flex-col gap-4 items-center justify-center'>
 					<ShoppingBag className='size-24' />
 					<h2 className='capitalize font-semibold text-xl '>
-						you don't have any products in your bag.
+						you do not have any products in your bag.
 					</h2>
 					<p className='text-center md:px-12 p-2 text-muted-foreground'>
-						You currently don't have any products in your shopibg bag. Please
+						You currently do not have any products in your shopibg bag. Please
 						add some so that you can see them right here.
 					</p>
 				</div>
