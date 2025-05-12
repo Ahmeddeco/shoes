@@ -160,14 +160,14 @@ export default function CreateProductPage() {
 										<SelectValue placeholder='Select Status' />
 									</SelectTrigger>
 									<SelectContent>
-										<SelectItem value={CategorySchema.Enum.kids}>
-											{CategorySchema.Enum.kids}
-										</SelectItem>
 										<SelectItem value={CategorySchema.Enum.men}>
 											{CategorySchema.Enum.men}
 										</SelectItem>
 										<SelectItem value={CategorySchema.Enum.women}>
 											{CategorySchema.Enum.women}
+										</SelectItem>
+										<SelectItem value={CategorySchema.Enum.kids}>
+											{CategorySchema.Enum.kids}
 										</SelectItem>
 									</SelectContent>
 								</Select>

@@ -65,13 +65,14 @@ export default async function ProductsPage() {
 								<TableHead className='w-[100px]'>Image</TableHead>
 								<TableHead>name</TableHead>
 								<TableHead>status</TableHead>
+								<TableHead>category</TableHead>
 								<TableHead>price</TableHead>
 								<TableHead>date</TableHead>
 								<TableHead className='text-end'>actions</TableHead>
 							</TableRow>
 						</TableHeader>
 						<TableBody>
-							{data.map(({ createdAt, id, images, name, price, status }) => (
+							{data.map(({ createdAt, id, images, name, price, status,category }) => (
 								<TableRow key={id}>
 									<TableCell>
 										{images.length > 0 ? (
@@ -88,6 +89,7 @@ export default async function ProductsPage() {
 									</TableCell>
 									<TableCell className='capitalize'>{name}</TableCell>
 									<TableCell className='capitalize'>{status}</TableCell>
+									<TableCell className='capitalize'>{category}</TableCell>
 									<TableCell>${price}</TableCell>
 									<TableCell>{createdAt.toLocaleDateString('en-GB')}</TableCell>
 									<TableCell className='text-end'>

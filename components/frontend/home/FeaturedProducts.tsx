@@ -5,6 +5,7 @@ const getData = async () => {
 	const data = await prisma.product.findMany({
 		where: {
 			status: 'published',
+			isFeatured: true,
 		},
 		select: {
 			id: true,
@@ -16,6 +17,7 @@ const getData = async () => {
 		orderBy: {
 			createdAt: 'desc',
 		},
+		take: 3,
 	})
 	return data
 }
@@ -28,7 +30,7 @@ export default async function FeaturedProducts() {
 			<h2 className='text-2xl font-extrabold tracking-tight capitalize '>
 				featured items
 			</h2>
-			<div className='mt-5 grid sm:grid-cols-2 lg:grid-cols-3 gap-5'>
+			<div className='my-5 grid sm:grid-cols-2 lg:grid-cols-3 gap-5'>
 				{data.map((item) => (
 					<ProductCard key={item.id} data={item} />
 				))}

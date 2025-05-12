@@ -34,4 +34,8 @@ export const frontNavigationLinks = [
     title: 'women',
     href: '/products/women'
   },
+  {
+    title: 'kids',
+    href: '/products/kids'
+  },
  ]
