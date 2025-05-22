@@ -7,6 +7,7 @@ import { extractRouterConfig } from 'uploadthing/server'
 import { ourFileRouter } from '@/app/api/uploadthing/core'
 import { Toaster } from '@/components/ui/sonner'
 import localFont from 'next/font/local'
+import { Analytics } from "@vercel/analytics/next"
 
 const roboto = localFont({
 	src: '../public/fonts/Roboto.ttf',
@@ -36,6 +37,7 @@ export default function RootLayout({
 				>
 					{children}
 					<Toaster position='top-center' richColors expand={true} />
+					<Analytics />
 				</ThemeProvider>
 			</body>
 		</html>
